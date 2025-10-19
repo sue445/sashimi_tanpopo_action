@@ -19,11 +19,85 @@ Action for running [sashimi_tanpopo](https://github.com/sue445/sashimi_tanpopo) 
     # sashimi_tanpopo command. (e.g. local, github, gitlab)
     # c.f. https://github.com/sue445/sashimi_tanpopo#usage
     # Default: github
-    sashimi-tanpopo-command: ""
+    command: ""
+
+    # recipe files.
+    # e.g. "recipe1.rb recipe2.rb"
+    recipe-files: ""
+
+    # Target directory.
+    # Default: $GITHUB_WORKSPACE
+    target-dir: ""
+
+    # Params passed to recipe file.
+    # e.g. "key1:value1 key2:value2"
+    params: ""
+
+    # Whether to run dry run.
+    # Either true or false.
+    # Default: false
+    dry_run: "false"
+
+    # Whether to colorize output.
+    # Either true or false.
+    # Default: true
+    color: "true"
+
+    # user name for git commit.
+    # Default: username of user authenticated with token.
+    # When using App Token, you must set this.
+    git-user-name: ""
+
+    # email for git commit.
+    # Default: <git_user_name>@users.noreply.<github_host>
+    git-email: ""
+
+    # commit message
+    message: ""
+
+    # GitHub repository for Pull Request.
+    # e.g. user/repo
+    # Default: $GITHUB_REPOSITORY
+    github-repository: ""
+
+    # GitHub API endpoint.
+    # Default: $GITHUB_API_URL
+    github-api-url: ""
+
+    # Pull Request title
+    pr-title: ""
+
+    # Pull Request body
+    pr-body: ""
+
+    # Pull Request source branch (a.k.a. head branch)
+    pr-source-branch: ""
+
+    # Pull Request target branch (a.k.a. base branch)
+    # Default: $GITHUB_REF_NAME
+    pr-target-branch: ""
+
+    # Pull Request assignees.
+    # e.g. "one two three"
+    pr-assignees: ""
+
+    # Pull Request reviewers.
+    # e.g. "one two three"
+    pr-reviewers: ""
+
+    # Pull Request labels.
+    # e.g. "one two three"
+    pr-labels: ""
+
+    # Whether to create draft Pull Request.
+    # Either true or false.
+    # Default: false
+    pr-draft: "false"
 
     # sashimi_tanpopo arguments.
+    # If you want to pass an argument you created yourself, use this.
     # c.f. https://github.com/sue445/sashimi_tanpopo#usage
-    sashimi-tanpopo-arguments: ""
+    arguments: ""
 ```
 
 ## Example
