@@ -154,9 +154,10 @@ inputs:
     required: false
     default: "false"
 
-  sashimi-tanpopo-arguments:
+  arguments:
     description: |
       sashimi_tanpopo arguments.
+      If you want to pass an argument you created yourself, use this.
       c.f. https://github.com/sue445/sashimi_tanpopo#usage
     required: false
     default: ""
