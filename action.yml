@@ -23,7 +23,7 @@ inputs:
     required: false
     default: ""
 
-  sashimi-tanpopo-command:
+  command:
     description: |
       sashimi_tanpopo command. (e.g. local, github, gitlab)
       c.f. https://github.com/sue445/sashimi_tanpopo#usage
@@ -276,7 +276,7 @@ runs:
         sashimi_tanpopo ${_COMMAND} ${args}
       shell: bash
       env:
-        _COMMAND:           "${{ inputs.sashimi-tanpopo-command }}"
+        _COMMAND:           "${{ inputs.command }}"
         _RECIPE_FILES:      "${{ inputs.recipe-files }}"
         _TARGET_DIR:        "${{ inputs.target-dir }}"
         _PARAMS:            "${{ inputs.params }}"

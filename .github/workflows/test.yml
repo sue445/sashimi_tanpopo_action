@@ -20,18 +20,18 @@ jobs:
       - name: Run sashimi_tanpopo version (Use latest version)
         uses: ./
         with:
-          sashimi-tanpopo-command: version
+          command: version
 
       - name: Run sashimi_tanpopo version (Use specified version)
         uses: ./
         with:
-          sashimi-tanpopo-command: version
+          command: version
           sashimi-tanpopo-version: 0.1.0
 
       - name: Run sashimi_tanpopo local
         uses: ./
         with:
-          sashimi-tanpopo-command: local
+          command: local
           recipe-files: "test/recipe.rb"
           params: "name:sue445 lang:ja"
 
