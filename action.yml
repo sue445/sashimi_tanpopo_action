@@ -22,6 +22,7 @@ inputs:
       sashimi_tanpopo arguments.
       c.f. https://github.com/sue445/sashimi_tanpopo#usage
     required: false
+    default: ""
 
 runs:
   using: composite
