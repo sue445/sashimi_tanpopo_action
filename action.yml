@@ -29,7 +29,7 @@ runs:
 
   steps:
     - name: Setup ruby
-      uses: ruby/setup-ruby@v1.265.0
+      uses: ruby/setup-ruby@ab177d40ee5483edb974554986f56b33477e21d0 # v1.265.0
       with:
         ruby-version: ${{ inputs.ruby-version }}
 
