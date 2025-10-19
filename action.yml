@@ -2,13 +2,6 @@ name: "sashimi_tanpopo_action"
 description: "Action for running sashimi_tanpopo with GitHub Actions"
 
 inputs:
-  setup-ruby-version:
-    description: |
-      Version for ruby/setup-ruby.
-      c.f. https://github.com/ruby/setup-ruby
-    required: true
-    default: v1
-
   ruby-version:
     description: |
       Runtime ruby version.
@@ -35,7 +28,7 @@ runs:
 
   steps:
     - name: Setup ruby
-      uses: ruby/setup-ruby@${{ inputs.setup-ruby-version }}
+      uses: ruby/setup-ruby@v1.265.0
       with:
         ruby-version: ${{ inputs.ruby-version }}
 
