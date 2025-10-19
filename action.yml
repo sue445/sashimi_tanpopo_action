@@ -30,6 +30,130 @@ inputs:
     required: true
     default: github
 
+  recipe-files:
+    description: |
+      recipe files.
+      e.g. "recipe1.rb recipe2.rb"
+    required: false
+    default: ""
+
+  target-dir:
+    description: |
+      Target directory.
+      Default: $GITHUB_WORKSPACE
+    required: false
+    default: ""
+
+  params:
+    description: |
+      Params passed to recipe file.
+      e.g. "key1:value1 key2:value2"
+    required: false
+    default: ""
+
+  dry_run:
+    description: |
+      Whether to run dry run.
+      Either true or false.
+    required: false
+    default: "false"
+
+  color:
+    description: |
+      Whether to colorize output.
+      Either true or false.
+    required: false
+    default: "true"
+
+  git-user-name:
+    description: |
+      user name for git commit.
+      Default: username of user authenticated with token.
+      When using App Token, you must set this.
+    required: false
+    default: ""
+
+  git-email:
+    description: |
+      email for git commit.
+      Default: <git_user_name>@users.noreply.<github_host>
+    required: false
+    default: ""
+
+  message:
+    description: |
+      commit message
+    required: false
+    default: ""
+
+  github-repository:
+    description: |
+      GitHub repository for Pull Request.
+      e.g. user/repo
+      Default: $GITHUB_REPOSITORY
+    required: false
+    default: ""
+
+  github-api-url:
+    description: |
+      GitHub API endpoint.
+      Default: $GITHUB_API_URL
+    required: false
+    default: ""
+
+  pr-title:
+    description: |
+      Pull Request title
+    required: false
+    default: ""
+
+  pr-body:
+    description: |
+      Pull Request body
+    required: false
+    default: ""
+
+  pr-source-branch:
+    description: |
+      Pull Request source branch (a.k.a. head branch)
+    required: false
+    default: ""
+
+  pr-target-branch:
+    description: |
+      Pull Request target branch (a.k.a. base branch)
+      Default: $GITHUB_REF_NAME
+    required: false
+    default: ""
+
+  pr-assignees:
+    description: |
+      Pull Request assignees.
+      e.g. "one two three"
+    required: false
+    default: ""
+
+  pr-reviewers:
+    description: |
+      Pull Request reviewers.
+      e.g. "one two three"
+    required: false
+    default: ""
+
+  pr-labels:
+    description: |
+      Pull Request labels.
+      e.g. "one two three"
+    required: false
+    default: ""
+
+  pr-draft:
+    description: |
+      Whether to create draft Pull Request.
+      Either true or false.
+    required: false
+    default: "false"
+
   sashimi-tanpopo-arguments:
     description: |
       sashimi_tanpopo arguments.
@@ -57,5 +181,6 @@ runs:
         SASHIMI_TANPOPO_VERSION: ${{ inputs.sashimi-tanpopo-version }}
 
     - name: Run sashimi_tanpopo
-      run: sashimi_tanpopo ${{ inputs.sashimi-tanpopo-command }} ${{ inputs.sashimi-tanpopo-arguments }}
+      run: |
+        sashimi_tanpopo ${{ inputs.sashimi-tanpopo-command }} ${{ inputs.sashimi-tanpopo-arguments }}
       shell: bash
