@@ -183,5 +183,116 @@ runs:
 
     - name: Run sashimi_tanpopo
       run: |
-        sashimi_tanpopo ${{ inputs.sashimi-tanpopo-command }} ${{ inputs.sashimi-tanpopo-arguments }}
+        args=""
+
+        if [ "${_COMMAND}" == "local" ] || [ "${_COMMAND}" == "github" ]; then
+          if [ "${_RECIPE_FILES}" != "" ]; then
+            args="${args} ${_RECIPE_FILES}"
+          fi
+  
+          if [ "${_TARGET_DIR}" != "" ]; then
+            args="${args} --target-dir=${_TARGET_DIR}"
+          fi
+  
+          if [ "${_PARAMS}" != "" ]; then
+            args="${args} --params=${_PARAMS}"
+          fi
+  
+          if [ "${_DRY_RUN}" != "" ]; then
+            if [ "${_DRY_RUN}" == "true" ]; then
+              args="${args} --dry-run"
+            else
+              args="${args} --no-dry-run"
+            fi
+          fi
+  
+          if [ "${_COLOR}" != "" ]; then
+            if [ "${_COLOR}" == "true" ]; then
+              args="${args} --color"
+            else
+              args="${args} --no-color"
+            fi
+          fi
+        fi
+
+        if [ "${_COMMAND}" == "github" ]; then
+          if [ "${_GIT_USER_NAME}" != "" ]; then
+            args="${args} --git-user-name=${_GIT_USER_NAME}"
+          fi
+        
+          if [ "${_GIT_EMAIL}" != "" ]; then
+            args="${args} --git-email=${_GIT_EMAIL}"
+          fi
+        
+          if [ "${_GITHUB_REPOSITORY}" != "" ]; then
+            args="${args} --github-repository=${_GITHUB_REPOSITORY}"
+          fi
+        
+          if [ "${_GITHUB_API_URL}" != "" ]; then
+            args="${args} --github-api-url=${_GITHUB_API_URL}"
+          fi
+        
+          if [ "${_PR_TITLE}" != "" ]; then
+            args="${args} --pr-title=${_PR_TITLE}"
+          fi
+        
+          if [ "${_PR_BODY}" != "" ]; then
+            args="${args} --pr-body=${_PR_BODY}"
+          fi
+        
+          if [ "${_PR_SOURCE_BRANCH}" != "" ]; then
+            args="${args} --pr-source-branch=${_PR_SOURCE_BRANCH}"
+          fi
+        
+          if [ "${_PR_TARGET_BRANCH}" != "" ]; then
+            args="${args} --pr-target-branch=${_PR_TARGET_BRANCH}"
+          fi
+        
+          if [ "${_PR_ASSIGNEES}" != "" ]; then
+            args="${args} --pr-assignees=${_PR_ASSIGNEES}"
+          fi
+        
+          if [ "${_PR_REVIEWERS}" != "" ]; then
+            args="${args} --pr-reviewers=${_PR_REVIEWERS}"
+          fi
+        
+          if [ "${_PR_LABELS}" != "" ]; then
+            args="${args} --pr-labels=${_PR_LABELS}"
+          fi
+        
+          if [ "${_PR_DRAFT}" != "" ]; then
+            if [ "${_PR_DRAFT}" == "true" ]; then
+              args="${args} --pr-draft"
+            else
+              args="${args} --no-pr-draft"
+            fi
+          fi
+        fi
+
+        if [ "${_ARGUMENTS}" != "" ]; then
+          args="${args} ${_ARGUMENTS}"
+        fi
+
+        sashimi_tanpopo ${_COMMAND} ${args}
       shell: bash
+      env:
+        _COMMAND:           "${{ inputs.sashimi-tanpopo-command }}"
+        _RECIPE_FILES:      "${{ inputs.recipe-files }}"
+        _TARGET_DIR:        "${{ inputs.target-dir }}"
+        _PARAMS:            "${{ inputs.params }}"
+        _DRY_RUN:           "${{ inputs.dry_run }}"
+        _COLOR:             "${{ inputs.color }}"
+        _GIT_USER_NAME:     "${{ inputs.git-user-name }}"
+        _GIT_EMAIL:         "${{ inputs.git-email }}"
+        _MESSAGE:           "${{ inputs.message }}"
+        _GITHUB_REPOSITORY: "${{ inputs.github-repository }}"
+        _GITHUB_API_URL:    "${{ inputs.github-api-url }}"
+        _PR_TITLE:          "${{ inputs.pr-title }}"
+        _PR_BODY:           "${{ inputs.pr-body }}"
+        _PR_SOURCE_BRANCH:  "${{ inputs.pr-source-branch }}"
+        _PR_TARGET_BRANCH:  "${{ inputs.pr-target-branch }}"
+        _PR_ASSIGNEES:      "${{ inputs.pr-assignees }}"
+        _PR_REVIEWERS:      "${{ inputs.pr-reviewers }}"
+        _PR_LABELS:         "${{ inputs.pr-labels }}"
+        _PR_DRAFT:          "${{ inputs.pr-draft }}"
+        _ARGUMENTS:         "${{ inputs.arguments }}"
