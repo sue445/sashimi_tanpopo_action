@@ -1,6 +1,10 @@
 name: "sashimi_tanpopo_action"
 description: "Action for running sashimi_tanpopo with GitHub Actions"
 
+branding:
+  icon: edit
+  color: green
+
 inputs:
   ruby-version:
     description: |
