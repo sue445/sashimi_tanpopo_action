@@ -112,5 +112,5 @@ jobs:
       - name: Run sashimi_tanpopo
         uses: sue445/sashimi_tanpopo_action@v0
         with:
-          sashimi-tanpopo-arguments: "TBD" # See. https://github.com/sue445/sashimi_tanpopo#sashimi_tanpopo-github
+          # See usage and https://github.com/sue445/sashimi_tanpopo#sashimi_tanpopo-github
 ```
