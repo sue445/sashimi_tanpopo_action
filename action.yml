@@ -7,14 +7,15 @@ inputs:
       Runtime ruby version.
       This passed to ruby-version of ruby/setup-ruby.
       c.f. https://github.com/ruby/setup-ruby
+      Default: ruby (latest stable version)
     required: true
     default: ruby
 
   sashimi-tanpopo-version:
     description: |
       sashimi_tanpopo version. (e.g. 0.1.0, 0.1.1)
-      default is latest.
       c.f. https://github.com/sue445/sashimi_tanpopo/releases
+      Default: latest version
     required: false
     default: ""
 
