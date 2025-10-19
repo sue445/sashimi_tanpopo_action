@@ -10,6 +10,14 @@ inputs:
     required: true
     default: ruby
 
+  sashimi-tanpopo-version:
+    description: |
+      sashimi_tanpopo version. (e.g. 0.1.0, 0.1.1)
+      default is latest.
+      c.f. https://github.com/sue445/sashimi_tanpopo/releases
+    required: false
+    default: ""
+
   sashimi-tanpopo-command:
     description: |
       sashimi_tanpopo command.
@@ -34,8 +42,14 @@ runs:
         ruby-version: ${{ inputs.ruby-version }}
 
     - name: Install sashimi_tanpopo
-      run: gem install --no-doc sashimi_tanpopo
+      run: |
+        if [ ${SASHIMI_TANPOPO_VERSION} != "" ]; then
+          args="--version ${SASHIMI_TANPOPO_VERSION}"
+        fi
+        gem install --no-doc sashimi_tanpopo ${args}
       shell: bash
+      env:
+        SASHIMI_TANPOPO_VERSION: ${{ inputs.sashimi-tanpopo-version }}
 
     - name: Run sashimi_tanpopo
       run: sashimi_tanpopo ${{ inputs.sashimi-tanpopo-command }} ${{ inputs.sashimi-tanpopo-arguments }}
