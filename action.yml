@@ -1,0 +1,48 @@
+name: "sashimi_tanpopo_action"
+description: "Action for running sashimi_tanpopo with GitHub Actions"
+
+inputs:
+  setup-ruby-version:
+    description: |
+      Version for ruby/setup-ruby.
+      c.f. https://github.com/ruby/setup-ruby
+    required: true
+    default: v1
+
+  ruby-version:
+    description: |
+      Runtime ruby version.
+      This passed to ruby-version of ruby/setup-ruby.
+      c.f. https://github.com/ruby/setup-ruby
+    required: true
+    default: ruby
+
+  sashimi-tanpopo-command:
+    description: |
+      sashimi_tanpopo command.
+      e.g. local, github, gitlab
+      c.f. https://github.com/sue445/sashimi_tanpopo#usage
+    required: true
+
+  sashimi-tanpopo-arguments:
+    description: |
+      sashimi_tanpopo arguments.
+      c.f. https://github.com/sue445/sashimi_tanpopo#usage
+    required: false
+
+runs:
+  using: composite
+
+  steps:
+    - name: Setup ruby
+      uses: ruby/setup-ruby@${{ inputs.setup-ruby-version }}
+      with:
+        ruby-version: ${{ inputs.ruby-version }}
+
+    - name: Install sashimi_tanpopo
+      run: gem install --no-doc sashimi_tanpopo
+      shell: bash
+
+    - name: Run sashimi_tanpopo
+      run: sashimi_tanpopo ${{ inputs.sashimi-tanpopo-command }} ${{ inputs.sashimi-tanpopo-arguments }}
+      shell: bash
