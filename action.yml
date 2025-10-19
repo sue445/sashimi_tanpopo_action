@@ -20,10 +20,10 @@ inputs:
 
   sashimi-tanpopo-command:
     description: |
-      sashimi_tanpopo command.
-      e.g. local, github, gitlab
+      sashimi_tanpopo command. (e.g. local, github, gitlab)
       c.f. https://github.com/sue445/sashimi_tanpopo#usage
     required: true
+    default: github
 
   sashimi-tanpopo-arguments:
     description: |
