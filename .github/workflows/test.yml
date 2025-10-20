@@ -75,12 +75,13 @@ jobs:
           command:           "github"
           recipe-files:      "test/recipe.rb"
           params:            "name:sue445 lang:ja"
-          dry_run:           "false"
+          dry_run:           "true"
           git-user-name:     "sashimi_tanpopo"
           github-repository: "sue445/sashimi_tanpopo_action"
           message:           "Embed variables"
           pr-title:          "Embed variables"
           pr-source-branch:  "my_patch"
+          pr-target-branch:  "main"
           pr-draft:          "true"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
