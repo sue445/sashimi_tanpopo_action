@@ -273,10 +273,6 @@ runs:
           fi
         fi
 
-        if [ "${_ARGUMENTS}" != "" ]; then
-          args="${args} ${_ARGUMENTS}"
-        fi
-
         set -x
         sashimi_tanpopo ${_COMMAND} "${args[@]}" ${_ARGUMENTS}
         set +x
