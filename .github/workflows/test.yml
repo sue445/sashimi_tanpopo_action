@@ -83,6 +83,7 @@ jobs:
           pr-source-branch:  "my_patch"
           pr-target-branch:  "main"
           pr-draft:          "true"
+          arguments:         "--no-color"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
