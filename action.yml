@@ -183,92 +183,92 @@ runs:
 
     - name: Run sashimi_tanpopo
       run: |
-        args=""
+        args=()
 
         if [ "${_COMMAND}" == "local" ] || [ "${_COMMAND}" == "github" ]; then
           if [ "${_RECIPE_FILES}" != "" ]; then
-            args="${args} ${_RECIPE_FILES}"
+            args+=(${_RECIPE_FILES})
           fi
   
           if [ "${_TARGET_DIR}" != "" ]; then
-            args="${args} --target-dir=${_TARGET_DIR}"
+            args+=("--target-dir" "${_TARGET_DIR}")
           fi
   
           if [ "${_PARAMS}" != "" ]; then
-            args="${args} --params=${_PARAMS}"
+            args+=("--params" ${_PARAMS})
           fi
   
           if [ "${_DRY_RUN}" != "" ]; then
             if [ "${_DRY_RUN}" == "true" ]; then
-              args="${args} --dry-run"
+              args+=("--dry-run")
             else
-              args="${args} --no-dry-run"
+              args+=("--no-dry-run")
             fi
           fi
   
           if [ "${_COLOR}" != "" ]; then
             if [ "${_COLOR}" == "true" ]; then
-              args="${args} --color"
+              args+=("--color")
             else
-              args="${args} --no-color"
+              args+=("--no-color")
             fi
           fi
         fi
 
         if [ "${_COMMAND}" == "github" ]; then
           if [ "${_GIT_USER_NAME}" != "" ]; then
-            args="${args} --git-user-name=${_GIT_USER_NAME}"
+            args+=("--git-user-name" "${_GIT_USER_NAME}")
           fi
         
           if [ "${_GIT_EMAIL}" != "" ]; then
-            args="${args} --git-email=${_GIT_EMAIL}"
+            args+=("--git-email" "${_GIT_EMAIL}")
           fi
         
           if [ "${_MESSAGE}" != "" ]; then
-            args="${args} --message=${_MESSAGE}"
+            args+=("--message" "${_MESSAGE}")
           fi
 
           if [ "${_GITHUB_REPOSITORY}" != "" ]; then
-            args="${args} --github-repository=${_GITHUB_REPOSITORY}"
+            args+=("--github-repository" "${_GITHUB_REPOSITORY}")
           fi
         
           if [ "${_GITHUB_API_URL}" != "" ]; then
-            args="${args} --github-api-url=${_GITHUB_API_URL}"
+            args+=("--github-api-url" "${_GITHUB_API_URL}")
           fi
         
           if [ "${_PR_TITLE}" != "" ]; then
-            args="${args} --pr-title=${_PR_TITLE}"
+            args+=("--pr-title" "${_PR_TITLE}")
           fi
         
           if [ "${_PR_BODY}" != "" ]; then
-            args="${args} --pr-body=${_PR_BODY}"
+            args+=("--pr-body" "${_PR_BODY}")
           fi
         
           if [ "${_PR_SOURCE_BRANCH}" != "" ]; then
-            args="${args} --pr-source-branch=${_PR_SOURCE_BRANCH}"
+            args+=("--pr-source-branch" "${_PR_SOURCE_BRANCH}")
           fi
         
           if [ "${_PR_TARGET_BRANCH}" != "" ]; then
-            args="${args} --pr-target-branch=${_PR_TARGET_BRANCH}"
+            args+=("--pr-target-branch" "${_PR_TARGET_BRANCH}")
           fi
         
           if [ "${_PR_ASSIGNEES}" != "" ]; then
-            args="${args} --pr-assignees=${_PR_ASSIGNEES}"
+            args+=("--pr-assignees" ${_PR_ASSIGNEES})
           fi
         
           if [ "${_PR_REVIEWERS}" != "" ]; then
-            args="${args} --pr-reviewers=${_PR_REVIEWERS}"
+            args+=("--pr-reviewers" ${_PR_REVIEWERS})
           fi
         
           if [ "${_PR_LABELS}" != "" ]; then
-            args="${args} --pr-labels=${_PR_LABELS}"
+            args+=("--pr-labels" ${_PR_LABELS})
           fi
         
           if [ "${_PR_DRAFT}" != "" ]; then
             if [ "${_PR_DRAFT}" == "true" ]; then
-              args="${args} --pr-draft"
+              args+=("--pr-draft")
             else
-              args="${args} --no-pr-draft"
+              args+=("--no-pr-draft")
             fi
           fi
         fi
@@ -278,7 +278,7 @@ runs:
         fi
 
         set -x
-        sashimi_tanpopo ${_COMMAND} ${args}
+        sashimi_tanpopo ${_COMMAND} "${args[@]}" ${_ARGUMENTS}
         set +x
       shell: bash
       env:
