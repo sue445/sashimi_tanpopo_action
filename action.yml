@@ -224,6 +224,10 @@ runs:
             args="${args} --git-email=${_GIT_EMAIL}"
           fi
         
+          if [ "${_MESSAGE}" != "" ]; then
+            args="${args} --message=${_MESSAGE}"
+          fi
+
           if [ "${_GITHUB_REPOSITORY}" != "" ]; then
             args="${args} --github-repository=${_GITHUB_REPOSITORY}"
           fi
