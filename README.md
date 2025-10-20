@@ -109,8 +109,25 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Generate App Token
+        id: generate_app_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id:       ${{ secrets.GH_APP_ID }}
+          private-key:  ${{ secrets.GH_PRIVATE_KEY }}
+          owner:        "username"
+          repositories: "reponame"
+
       - name: Run sashimi_tanpopo
         uses: sue445/sashimi_tanpopo_action@v0
         with:
           # See usage and https://github.com/sue445/sashimi_tanpopo#sashimi_tanpopo-github
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_app_token.outputs.token }}
 ```
+
+**[IMPORTANT]** I strongly recommend using [App Token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app) instead of `secrets.GITHUB_TOKEN`.
+
+Because Pull Requests created by `secrets.GITHUB_TOKEN` doesn't trigger builds.
+
+c.f. https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow#triggering-a-workflow-from-a-workflow
