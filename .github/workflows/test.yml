@@ -61,10 +61,43 @@ jobs:
           status: ${{ job.status }}
           webhook-url: ${{ secrets.SLACK_WEBHOOK }}
 
+  sashimi_tanpopo-github:
+    name: "sashimi_tanpopo github"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Run sashimi_tanpopo github
+        uses: ./
+        with:
+          command:           "github"
+          recipe-files:      "test/recipe.rb"
+          params:            "name:sue445 lang:ja"
+          dry_run:           "false"
+          git-user-name:     "sashimi_tanpopo"
+          github-repository: "sue445/sashimi_tanpopo_action"
+          message:           "Embed variables"
+          pr-title:          "Embed variables"
+          pr-source-branch:  "my_patch"
+          pr-draft:          "true"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Slack Notification (not success)
+        uses: act10ns/slack@44541246747a30eb3102d87f7a4cc5471b0ffb7d # v2.1.0
+        if: "! success()"
+        continue-on-error: true
+        with:
+          status: ${{ job.status }}
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+
   notify:
     needs:
       - sashimi_tanpopo-version
       - sashimi_tanpopo-local
+      - sashimi_tanpopo-github
 
     runs-on: ubuntu-latest
 
