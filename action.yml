@@ -277,7 +277,9 @@ runs:
           args="${args} ${_ARGUMENTS}"
         fi
 
+        set -x
         sashimi_tanpopo ${_COMMAND} ${args}
+        set +x
       shell: bash
       env:
         _COMMAND:           "${{ inputs.command }}"
