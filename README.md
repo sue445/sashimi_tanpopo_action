@@ -74,7 +74,7 @@ Action for running [sashimi_tanpopo](https://github.com/sue445/sashimi_tanpopo) 
     pr-source-branch: ""
 
     # Pull Request target branch (a.k.a. base branch)
-    # Default: $GITHUB_REF_NAME
+    # Default: default branch of github-repository
     pr-target-branch: ""
 
     # Pull Request assignees.

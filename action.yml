@@ -122,7 +122,7 @@ inputs:
   pr-target-branch:
     description: |
       Pull Request target branch (a.k.a. base branch)
-      Default: $GITHUB_REF_NAME
+      Default: default branch of github-repository
     required: false
     default: ""
 
