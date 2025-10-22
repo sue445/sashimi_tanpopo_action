@@ -1,6 +1,8 @@
 # sashimi_tanpopo_action
 Action for running [sashimi_tanpopo](https://github.com/sue445/sashimi_tanpopo) with GitHub Actions
 
+[![test](https://github.com/sue445/sashimi_tanpopo_action/actions/workflows/test.yml/badge.svg)](https://github.com/sue445/sashimi_tanpopo_action/actions/workflows/test.yml)
+
 ## Usage
 ```yml
 - uses: sue445/sashimi_tanpopo_action@v0
