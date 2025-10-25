@@ -173,7 +173,7 @@ runs:
 
     - name: Install sashimi_tanpopo
       run: |
-        if [ ${SASHIMI_TANPOPO_VERSION} != "" ]; then
+        if [ "${SASHIMI_TANPOPO_VERSION}" != "" ]; then
           args="--version ${SASHIMI_TANPOPO_VERSION}"
         fi
         gem install --no-doc sashimi_tanpopo ${args}
