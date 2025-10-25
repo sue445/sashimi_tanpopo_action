@@ -1,5 +1,11 @@
 ## [Unreleased]
-[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.3.0...main)
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.3.1...main)
+
+## [0.3.1](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.3.1) - 2025-10-25
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.3.0...v0.3.1)
+
+* Fix `line 1: [: !=: unary operator expected` error in Install sashimi_tanpopo job
+  * https://github.com/sue445/sashimi_tanpopo_action/pull/17
 
 ## [0.3.0](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.3.0) - 2025-10-25
 [full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.2.2...v0.3.0)
