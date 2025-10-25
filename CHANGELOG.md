@@ -1,5 +1,15 @@
 ## [Unreleased]
-[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.2.2...main)
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.3.0...main)
+
+## [0.3.0](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.3.0) - 2025-10-25
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.2.2...v0.3.0)
+
+* Fix default value of `pr-target-branch`
+  * https://github.com/sue445/sashimi_tanpopo_action/pull/14
+* Rename input: `dry_run` -> `dry-run`
+  * https://github.com/sue445/sashimi_tanpopo_action/pull/15
+* Enable `dry-run` by default
+  * https://github.com/sue445/sashimi_tanpopo_action/pull/16
 
 ## [0.2.2](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.2.2) - 2025-10-20
 [full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.2.1...v0.2.2)
