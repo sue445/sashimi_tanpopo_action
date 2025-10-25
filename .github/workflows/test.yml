@@ -75,7 +75,7 @@ jobs:
           command:           "github"
           recipe-files:      "test/recipe.rb"
           params:            "name:sue445 lang:ja"
-          dry_run:           "true"
+          dry-run:           "true"
           git-user-name:     "sashimi_tanpopo"
           github-repository: "sue445/sashimi_tanpopo_action"
           message:           "Embed variables"
