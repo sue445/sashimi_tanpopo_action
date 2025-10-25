@@ -56,7 +56,7 @@ inputs:
       Whether to run dry run.
       Either true or false.
     required: false
-    default: "false"
+    default: "true"
 
   color:
     description: |

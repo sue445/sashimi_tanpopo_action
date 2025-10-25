@@ -37,8 +37,8 @@ Action for running [sashimi_tanpopo](https://github.com/sue445/sashimi_tanpopo) 
 
     # Whether to run dry run.
     # Either true or false.
-    # Default: false
-    dry-run: "false"
+    # Default: true
+    dry-run: "true"
 
     # Whether to colorize output.
     # Either true or false.
