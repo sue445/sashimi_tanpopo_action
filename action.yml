@@ -51,7 +51,7 @@ inputs:
     required: false
     default: ""
 
-  dry_run:
+  dry-run:
     description: |
       Whether to run dry run.
       Either true or false.
@@ -282,7 +282,7 @@ runs:
         _RECIPE_FILES:      "${{ inputs.recipe-files }}"
         _TARGET_DIR:        "${{ inputs.target-dir }}"
         _PARAMS:            "${{ inputs.params }}"
-        _DRY_RUN:           "${{ inputs.dry_run }}"
+        _DRY_RUN:           "${{ inputs.dry-run }}"
         _COLOR:             "${{ inputs.color }}"
         _GIT_USER_NAME:     "${{ inputs.git-user-name }}"
         _GIT_EMAIL:         "${{ inputs.git-email }}"
