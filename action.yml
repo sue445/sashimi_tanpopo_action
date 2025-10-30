@@ -101,6 +101,13 @@ inputs:
     required: false
     default: ""
 
+  github-step-summary:
+    description: |
+      Path to GitHub step summary file.
+      Default: $GITHUB_STEP_SUMMARY
+    required: false
+    default: ""
+
   pr-title:
     description: |
       Pull Request title
@@ -236,6 +243,10 @@ runs:
             args+=("--github-api-url" "${_GITHUB_API_URL}")
           fi
         
+          if [ "${_GITHUB_STEP_SUMMARY}" != "" ]; then
+            args+=("--github-step-summary" "${_GITHUB_STEP_SUMMARY}")
+          fi
+
           if [ "${_PR_TITLE}" != "" ]; then
             args+=("--pr-title" "${_PR_TITLE}")
           fi
@@ -278,23 +289,24 @@ runs:
         set +x
       shell: bash
       env:
-        _COMMAND:           "${{ inputs.command }}"
-        _RECIPE_FILES:      "${{ inputs.recipe-files }}"
-        _TARGET_DIR:        "${{ inputs.target-dir }}"
-        _PARAMS:            "${{ inputs.params }}"
-        _DRY_RUN:           "${{ inputs.dry-run }}"
-        _COLOR:             "${{ inputs.color }}"
-        _GIT_USER_NAME:     "${{ inputs.git-user-name }}"
-        _GIT_EMAIL:         "${{ inputs.git-email }}"
-        _MESSAGE:           "${{ inputs.message }}"
-        _GITHUB_REPOSITORY: "${{ inputs.github-repository }}"
-        _GITHUB_API_URL:    "${{ inputs.github-api-url }}"
-        _PR_TITLE:          "${{ inputs.pr-title }}"
-        _PR_BODY:           "${{ inputs.pr-body }}"
-        _PR_SOURCE_BRANCH:  "${{ inputs.pr-source-branch }}"
-        _PR_TARGET_BRANCH:  "${{ inputs.pr-target-branch }}"
-        _PR_ASSIGNEES:      "${{ inputs.pr-assignees }}"
-        _PR_REVIEWERS:      "${{ inputs.pr-reviewers }}"
-        _PR_LABELS:         "${{ inputs.pr-labels }}"
-        _PR_DRAFT:          "${{ inputs.pr-draft }}"
-        _ARGUMENTS:         "${{ inputs.arguments }}"
+        _COMMAND:             "${{ inputs.command }}"
+        _RECIPE_FILES:        "${{ inputs.recipe-files }}"
+        _TARGET_DIR:          "${{ inputs.target-dir }}"
+        _PARAMS:              "${{ inputs.params }}"
+        _DRY_RUN:             "${{ inputs.dry-run }}"
+        _COLOR:               "${{ inputs.color }}"
+        _GIT_USER_NAME:       "${{ inputs.git-user-name }}"
+        _GIT_EMAIL:           "${{ inputs.git-email }}"
+        _MESSAGE:             "${{ inputs.message }}"
+        _GITHUB_REPOSITORY:   "${{ inputs.github-repository }}"
+        _GITHUB_API_URL:      "${{ inputs.github-api-url }}"
+        _GITHUB_STEP_SUMMARY: "${{ inputs.github-step-summary }}"
+        _PR_TITLE:            "${{ inputs.pr-title }}"
+        _PR_BODY:             "${{ inputs.pr-body }}"
+        _PR_SOURCE_BRANCH:    "${{ inputs.pr-source-branch }}"
+        _PR_TARGET_BRANCH:    "${{ inputs.pr-target-branch }}"
+        _PR_ASSIGNEES:        "${{ inputs.pr-assignees }}"
+        _PR_REVIEWERS:        "${{ inputs.pr-reviewers }}"
+        _PR_LABELS:           "${{ inputs.pr-labels }}"
+        _PR_DRAFT:            "${{ inputs.pr-draft }}"
+        _ARGUMENTS:           "${{ inputs.arguments }}"
