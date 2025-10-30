@@ -1,5 +1,11 @@
 ## [Unreleased]
-[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.3.1...main)
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.4.0...main)
+
+## [0.4.0](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.4.0) - 2025-10-30
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.3.1...v0.4.0)
+
+* Add `github-step-summary` to inputs
+  * https://github.com/sue445/sashimi_tanpopo_action/pull/18
 
 ## [0.3.1](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.3.1) - 2025-10-25
 [full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.3.0...v0.3.1)
