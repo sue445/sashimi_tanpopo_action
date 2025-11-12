@@ -68,17 +68,18 @@ inputs:
   git-user-name:
     description: |
       user name for git commit.
-      Default: username of user authenticated with token.
-      When using App Token, you must set this.
     required: false
-    default: ""
+
+    # c.f. https://github.com/orgs/community/discussions/26560#discussioncomment-3252339
+    default: "github-actions[bot]"
 
   git-email:
     description: |
       email for git commit.
-      Default: <git_user_name>@users.noreply.<github_host>
     required: false
-    default: ""
+
+    # c.f. https://github.com/orgs/community/discussions/26560#discussioncomment-3252339
+    default: "github-actions[bot]@users.noreply.github.com"
 
   message:
     description: |
