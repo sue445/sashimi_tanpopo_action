@@ -1,5 +1,11 @@
 ## [Unreleased]
-[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.4.0...main)
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.4.1...main)
+
+## [0.4.1](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.4.1) - 2025-11-12
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.4.0...v0.4.1)
+
+* Set default value to `git-user-name` and `git-email`
+  * https://github.com/sue445/sashimi_tanpopo_action/pull/20
 
 ## [0.4.0](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.4.0) - 2025-10-30
 [full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.3.1...v0.4.0)
