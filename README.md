@@ -46,12 +46,11 @@ Action for running [sashimi_tanpopo](https://github.com/sue445/sashimi_tanpopo) 
     color: "true"
 
     # user name for git commit.
-    # Default: username of user authenticated with token.
-    # When using App Token, you must set this.
+    # Default: github-actions[bot]
     git-user-name: ""
 
     # email for git commit.
-    # Default: <git_user_name>@users.noreply.<github_host>
+    # Default: github-actions[bot]@users.noreply.github.com
     git-email: ""
 
     # commit message
