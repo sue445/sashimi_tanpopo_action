@@ -109,6 +109,12 @@ inputs:
     required: false
     default: ""
 
+  only-changes-summary:
+    description: |
+      Whether to write only file changes to step summary file
+    required: false
+    default: "false"
+
   pr-title:
     description: |
       Pull Request title
@@ -248,6 +254,14 @@ runs:
             args+=("--github-step-summary" "${_GITHUB_STEP_SUMMARY}")
           fi
 
+          if [ "${_ONLY_CHANGES_SUMMARY}" != "" ]; then
+            if [ "${_ONLY_CHANGES_SUMMARY}" == "true" ]; then
+              args+=("--only-changes-summary")
+            else
+              args+=("--no-only-changes-summary")
+            fi
+          fi
+
           if [ "${_PR_TITLE}" != "" ]; then
             args+=("--pr-title" "${_PR_TITLE}")
           fi
@@ -302,6 +316,7 @@ runs:
         _GITHUB_REPOSITORY:   "${{ inputs.github-repository }}"
         _GITHUB_API_URL:      "${{ inputs.github-api-url }}"
         _GITHUB_STEP_SUMMARY: "${{ inputs.github-step-summary }}"
+        _ONLY_CHANGES_SUMMARY: "${{ inputs.only-changes-summary }}"
         _PR_TITLE:            "${{ inputs.pr-title }}"
         _PR_BODY:             "${{ inputs.pr-body }}"
         _PR_SOURCE_BRANCH:    "${{ inputs.pr-source-branch }}"
