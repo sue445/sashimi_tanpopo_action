@@ -95,11 +95,20 @@ jobs:
           status: ${{ job.status }}
           webhook-url: ${{ secrets.SLACK_WEBHOOK }}
 
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+
+      - name: Run actionlint
+        uses: reviewdog/action-actionlint@a5524e1c19e62881d79c1f1b9b6f09f16356e281 # v1.65.2
+
   notify:
     needs:
       - sashimi_tanpopo-version
       - sashimi_tanpopo-local
       - sashimi_tanpopo-github
+      - actionlint
 
     runs-on: ubuntu-latest
 
