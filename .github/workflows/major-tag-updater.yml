@@ -17,20 +17,20 @@ jobs:
 
       - name: Extract Major Version and Update Tag
         run: |
-          VERSION=${GITHUB_REF#refs/tags/} 
-          MAJOR_VERSION=$(echo $VERSION | cut -d. -f1) 
+          VERSION="${GITHUB_REF#refs/tags/}"
+          MAJOR_VERSION="$(echo "$VERSION" | cut -d. -f1)"
 
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "MAJOR_VERSION=$MAJOR_VERSION" >> $GITHUB_ENV
-          
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "MAJOR_VERSION=$MAJOR_VERSION" >> "$GITHUB_ENV"
+
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-          git tag -d $MAJOR_VERSION || true 
-          git push origin :refs/tags/$MAJOR_VERSION || true
+          git tag -d "$MAJOR_VERSION" || true
+          git push origin ":refs/tags/$MAJOR_VERSION" || true
 
-          git tag $MAJOR_VERSION $VERSION          
-          git push origin $MAJOR_VERSION
+          git tag "$MAJOR_VERSION" "$VERSION"
+          git push origin "$MAJOR_VERSION"
 
       - name: Log Tags
         run: |
