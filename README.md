@@ -102,7 +102,7 @@ Action for running [sashimi_tanpopo](https://github.com/sue445/sashimi_tanpopo) 
     arguments: ""
 
     # GitHub token
-    # Default: `github.token` (same to `secrets.GITHUB_TOKEN`)
+    # Default: `github.token` (same as `secrets.GITHUB_TOKEN`)
     github-token: "${{ github.token }}"
 ```
 
