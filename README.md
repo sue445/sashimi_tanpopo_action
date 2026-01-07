@@ -100,6 +100,10 @@ Action for running [sashimi_tanpopo](https://github.com/sue445/sashimi_tanpopo) 
     # If you want to pass an argument you created yourself, use this.
     # c.f. https://github.com/sue445/sashimi_tanpopo#usage
     arguments: ""
+
+    # GitHub token
+    # Default: `github.token` (same to `secrets.GITHUB_TOKEN`)
+    github-token: "${{ github.token }}"
 ```
 
 ## Example
@@ -124,8 +128,7 @@ jobs:
         uses: sue445/sashimi_tanpopo_action@v0
         with:
           # See usage and https://github.com/sue445/sashimi_tanpopo#sashimi_tanpopo-github
-        env:
-          GITHUB_TOKEN: ${{ steps.generate_app_token.outputs.token }}
+          github-token: ${{ steps.generate_app_token.outputs.token }}
 ```
 
 **[IMPORTANT]** I strongly recommend using [App Token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app) instead of `secrets.GITHUB_TOKEN`.

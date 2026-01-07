@@ -176,6 +176,12 @@ inputs:
     required: false
     default: ""
 
+  github-token:
+    description: |
+      GitHub token
+    required: false
+    default: "${{ github.token }}"
+
 runs:
   using: composite
 
@@ -326,3 +332,4 @@ runs:
         _PR_LABELS:            "${{ inputs.pr-labels }}"
         _PR_DRAFT:             "${{ inputs.pr-draft }}"
         _ARGUMENTS:            "${{ inputs.arguments }}"
+        GITHUB_TOKEN:          "${{ inputs.github-token }}"

@@ -84,8 +84,6 @@ jobs:
           pr-target-branch:  "main"
           pr-draft:          "true"
           arguments:         "--no-color"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Slack Notification (not success)
         uses: act10ns/slack@44541246747a30eb3102d87f7a4cc5471b0ffb7d # v2.1.0
