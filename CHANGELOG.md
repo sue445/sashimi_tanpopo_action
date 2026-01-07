@@ -1,5 +1,11 @@
 ## [Unreleased]
-[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.5.2...main)
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.6.0...main)
+
+## [v0.6.0](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.6.0) - 2026-01-07
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.5.2...v0.6.0)
+
+* Add `github-token` to inputs
+  * https://github.com/sue445/sashimi_tanpopo_action/pull/34
 
 ## [v0.5.2](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.5.2) - 2026-01-03
 [full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.5.1...v0.5.2)
