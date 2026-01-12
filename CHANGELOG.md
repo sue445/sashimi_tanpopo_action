@@ -1,5 +1,11 @@
 ## [Unreleased]
-[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.6.0...main)
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.7.0...main)
+
+## [v0.7.0](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.7.0) - 2026-01-12
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.6.0...v0.7.0)
+
+* Add `pr-auto-merge` to inputs
+  * https://github.com/sue445/sashimi_tanpopo_action/pull/36
 
 ## [v0.6.0](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.6.0) - 2026-01-07
 [full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.5.2...v0.6.0)
