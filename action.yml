@@ -168,6 +168,13 @@ inputs:
     required: false
     default: "false"
 
+  pr-auto-merge:
+    description: |
+      Whether to auto-merge to Pull Request.
+      Either true or false.
+    required: false
+    default: "false"
+
   arguments:
     description: |
       sashimi_tanpopo arguments.
@@ -303,6 +310,14 @@ runs:
               args+=("--no-pr-draft")
             fi
           fi
+
+          if [ "${_PR_AUTO_MERGE}" != "" ]; then
+            if [ "${_PR_AUTO_MERGE}" == "true" ]; then
+              args+=("--pr-auto-merge")
+            else
+              args+=("--no-pr-auto-merge")
+            fi
+          fi
         fi
 
         set -x
@@ -331,5 +346,6 @@ runs:
         _PR_REVIEWERS:         "${{ inputs.pr-reviewers }}"
         _PR_LABELS:            "${{ inputs.pr-labels }}"
         _PR_DRAFT:             "${{ inputs.pr-draft }}"
+        _PR_AUTO_MERGE:        "${{ inputs.pr-auto-merge }}"
         _ARGUMENTS:            "${{ inputs.arguments }}"
         GITHUB_TOKEN:          "${{ inputs.github-token }}"
