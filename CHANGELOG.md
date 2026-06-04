@@ -1,5 +1,12 @@
 ## [Unreleased]
-[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.7.0...main)
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.7.1...main)
+
+## [v0.7.1](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.7.1) - 2026-06-04
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.7.0...v0.7.1)
+
+* Resolve deprecation warning in ruby/setup-ruby
+  * https://github.com/sue445/sashimi_tanpopo_action/issues/45
+* Update action dependencies
 
 ## [v0.7.0](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.7.0) - 2026-01-12
 [full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.6.0...v0.7.0)
