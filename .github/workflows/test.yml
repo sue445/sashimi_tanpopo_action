@@ -18,12 +18,12 @@ jobs:
       - uses: actions/checkout@v7.0.1
 
       - name: Run sashimi_tanpopo version (Use latest version)
-        uses: ./
+        uses: $/
         with:
           command: version
 
       - name: Run sashimi_tanpopo version (Use specified version)
-        uses: ./
+        uses: $/
         with:
           command: version
           sashimi-tanpopo-version: 0.1.0
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@v7.0.1
 
       - name: Run sashimi_tanpopo local
-        uses: ./
+        uses: $/
         with:
           command:      "local"
           recipe-files: "test/recipe.rb"
@@ -64,7 +64,7 @@ jobs:
       - uses: actions/checkout@v7.0.1
 
       - name: Run sashimi_tanpopo github
-        uses: ./
+        uses: $/
         with:
           command:           "github"
           recipe-files:      "test/recipe.rb"
