@@ -1,5 +1,10 @@
 ## [Unreleased]
-[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.7.1...main)
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.7.2...main)
+
+## [v0.7.2](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.7.2) - 2026-11-19
+[full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.7.1...v0.7.2)
+
+* Update action dependencies
 
 ## [v0.7.1](https://github.com/sue445/sashimi_tanpopo_action/releases/tag/v0.7.1) - 2026-06-04
 [full changelog](http://github.com/sue445/sashimi_tanpopo_action/compare/v0.7.0...v0.7.1)
